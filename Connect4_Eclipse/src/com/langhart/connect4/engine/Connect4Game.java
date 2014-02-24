@@ -73,6 +73,9 @@ public class Connect4Game {
 		if(player != players.get(currentPlayer))
 			throw new Connect4Exception("It is not this player's turn.");
 		
+		if(col >= WIDTH || col < 0)
+			throw new Connect4Exception("Column value "+col+" is out of range.");
+		
 		Cell cell = null;
 		for(int i = HEIGHT-1; i >= 0; i--){
 			cell = cellsByCol.get(col).get(i);
@@ -87,6 +90,8 @@ public class Connect4Game {
 		cell.token = player.token;
 		
 		currentPlayer = (currentPlayer+1)%2;
+		
+		updateWinningCondition();
 		
 		return STATUS.OTHER_PLAYERS_TURN;
 	}
