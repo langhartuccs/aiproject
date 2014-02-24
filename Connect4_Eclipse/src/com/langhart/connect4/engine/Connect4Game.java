@@ -91,7 +91,7 @@ public class Connect4Game {
 		
 		currentPlayer = (currentPlayer+1)%2;
 		
-		updateWinningCondition();
+		updateWinningCondition(col);
 		
 		return STATUS.OTHER_PLAYERS_TURN;
 	}
@@ -124,7 +124,7 @@ public class Connect4Game {
 		return output.toString();
 	}
 	
-	private void updateWinningCondition(){
+	private void updateWinningCondition(int col){
 		
 	}
 	
